@@ -1,0 +1,67 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+<h1 class="heading fw-bolder text-center">CUSTOMER INFORMATION</h1>
+
+<div class="container text-center bg-body-secondary rounded border border-dark mb-4 mt-4 px-4">
+    <div class="row gx-0">
+                <div class="col">
+                 <div class="p-3">
+                    {% if customer.customer_picture %}
+                    <img src="{{customer.customer_picture.url}}" alt="Admin" class="square" width="90%" height="100%">
+                    {% endif %}
+                 </div>
+                </div>
+                <div class="col">
+                  <div class="p-3">
+                     <h3 class="text-dark bold mb-2">Name</h3>
+                        {{customer.name}}
+                        <h3 class="text-dark mb-2">Address</h3>
+                            {{customer.address}}
+                            <h3 class="text-dark mb-2">Phone</h3>
+                            {{customer.name}}
+                            <h3 class="text-dark mb-2">Email</h3>
+                            {{customer.name}}
+                            <h3 class="text-dark mb-2">Selected Hair Service</h3>
+                            {{customer.hair_service}}
+                            <h3 class="text-dark mb-2">Selected Nail Service</h3>
+                            {{customer.nails_service}}
+                            <h3 class="text-dark mb-2">Message</h3>
+                            {{customer.message}}
+                            <h3 class="text-dark mb-2">Selected Time</h3>
+                            {{customer.time}}
+                            <h3 class="text-dark mb-2">Selected Date</h3>
+                            {{customer.date}}
+                            <hr class="border border-dark border-2 opacity-50">
+                   <a href="{% url 'homePage' %}"> <button class="btn btn-secondary">Back</button></a>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container px-4 text-center rounded bg-body-secondary">
+    <div class=" mb-4 mt-4">
+        <div class="card">   
+    <div class="row gx-5">
+      <div class="col">
+       <div class="p-3">
+        
+    </div>
+      </div>
+      <div class=" mb-4 mt-4">
+        <div class="card">
+      <div class="col">
+        <div class="p-3">
+            <div class="p-3">
+            
+            </div>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock %}

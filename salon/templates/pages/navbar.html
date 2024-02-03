@@ -1,0 +1,33 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-secondary" style="padding-left: 10rem; font-size:large; font-weight:500">
+  <div class="container-fluid">
+   <a href="{% url 'homePage' %}"><image alt="logo" width="50" height="50" class="d-inline-block align-text-top" src="{% static 'images/logo.png' %}"></image></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'homePage' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'aboutPage' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'createCustomer' %}">Book</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#naillist">Nail Services</a></li>
+            <li><a class="dropdown-item" href="#hairlist">Hair Services</a></li>
+            <li><a class="dropdown-item" href="#packagelist">Packages</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,261 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+<section class="home" id="home">
+    <div class="content">
+        <span>Welcome</span>
+        <h3>Dito ka na, Sis! <br> May baon kaming chismis! <br> & We Will
+            Make your hair beautiful!</h3>
+    </div>
+</section>
+
+<div class="page-section mt-5" id="services">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase" style="font-size: xx-large; font-weight: bold">Services</h2>
+      </div>
+      <div class="row text-center">
+          <div class="col-md-4">
+           <span class="fa-stack fa-4x">
+               <i class="fas fa-circle fa-stack-2x text-dark"></i>
+               <i class="fas fa-air-freshener fa-stack-1x fa-inverse"></i>
+            </span>
+              <h4 class="my-3" style="font-weight: bold">Nail</h4>
+              <p class="text-muted">Make you nails beautiful with our different nails arts.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-dark"></i>
+              <i class="fas fa-box fa-stack-1x fa-inverse"></i>
+            </span>
+              <h4 class="my-3" style="font-weight: bold">Package</h4>
+              <p class="text-muted">Packages in lower prices.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-dark"></i>
+              <i class="fas fa-cut fa-stack-1x fa-inverse"></i>
+            </span>
+              <h4 class="my-3" style="font-weight: bold">Hair</h4>
+              <p class="text-muted">Different types of Hair Cuts that will match and makes you beautifully gorgeous</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <div class="col mb-5">
+              <div class="card h-100">
+                  <img class="card-img-top" src="{% static 'images/customer.jpg' %}" alt="">
+                  <div class="card-body p-4">
+                      <div class="text-center" style="font-size: 3rem;">
+                            <h5 class="fw-bolder" style="font-size: 2rem;"> Total Nail Services</h5>
+                            <h5  style="font-size: 3.5rem">{{total_customer}}</h5>
+                        </div>
+                  </div>
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center"><a class="btn btn-secondary mt-auto" href="#customerlist">See List</a></div>
+                  </div>
+              </div>
+          </div>
+              <div class="col mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{% static 'images/nail.jpg' %}" alt="">
+                    <div class="card-body p-4">
+                        <div class="text-center" style="font-size: 3rem;">
+                            <h5 class="fw-bolder" style="font-size: 2rem;"> Total Nail Services</h5>
+                            <h5  style="font-size: 3.5rem">{{total_nail}}</h5>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-secondary mt-auto" href="#">See List</a></div>
+                    </div>
+                </div>
+            </div>
+              <div class="col mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{% static 'images/package.jpg' %}" alt="">
+                    <div class="card-body p-4">
+                        <div class="text-center" style="font-size: 3rem;">
+                            <h5 class="fw-bolder" style="font-size: 2rem;"> Total Nail Services</h5>
+                            <h5  style="font-size: 3.5rem">{{total_package}}</h5>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-secondary mt-auto" href="#">See List</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+              <div class="card h-100">
+                  <img class="card-img-top" src="{% static 'images/hair.jpg' %}" alt="">
+                  <div class="card-body p-4">
+                      <div class="text-center" style="font-size: 3rem;">
+                            <h5 class="fw-bolder" style="font-size: 2rem;"> Total Nail Services</h5>
+                            <h5  style="font-size: 3.5rem">{{total_hair}}</h5>
+                        </div>
+                  </div>
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center"><a class="btn btn-secondary mt-auto" href="#">See List</a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="hairlist" id="hairlist" style="padding-bottom: 4rem;">
+ <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase" style="font-size: xx-large; font-weight: bold">HAIR SERVICES LISTS</h2>
+                    <a href="{% url 'addHairService' %}"><button type="button"  class="btn btn-secondary"><i class="fas fa-plus"> Add Hair Service</i></button></a>
+                </div>
+                <br>
+<div class="container">
+    <table class="table table-bordered" style="font-size: 1.5rem;">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Hair Services</th>
+          <th scope="col">Price</th>
+          <th scope="'col">Action</th>
+        </tr>
+      </thead>
+        <tr>
+          {% for hair in hair %}
+          <td>{{ hair.id }}</td>
+          <td>{{ hair.hairservice_name }}</td>
+          <td>₱{{ hair.price }}</td>
+          <td>
+            <a href="{% url 'viewHairInfo' hair.id %}"><button type="button"  class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+            <a href="{% url 'updateHairService' hair.id %}"><button type="button"  class="btn btn-success"><i class="fas fa-edit"></i></button></a>
+            <a href="{% url 'deleteHairService' hair.id %}"><button type="button" id='deleteBtn'  class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+          </td>
+        </tr>
+          {% endfor %}
+      </table>
+      </div>
+    </div>
+</div>
+
+<div class="naillist" id="naillist" style="padding-bottom: 4rem;">
+ <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading text-uppercase" style="font-size: xx-large; font-weight: bolder">NAIL SERVICES LISTS</h2>
+          <a href="{% url 'addNailService' %}"><button type="button"  class="btn btn-secondary"><i class="fas fa-plus"> Add Nail Service</i></button></a>
+      </div>
+<br>
+<div class="container">
+  <table class="table table-bordered" style="font-size: 1.5rem;">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nail Services</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+        <tr>
+          {% for nail in nail %}
+          <td>{{ nail.id }}</td>
+          <td>{{ nail.nailservice_name }}</td>
+          <td>₱{{ nail.price }}</td>
+          <td>
+            <a href="{% url 'viewNailInfo' nail.id %}"><button type="button"  class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+            <a href="{% url 'updateNailService' nail.id %}"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></a>
+            <a href="{% url 'deleteNailService' nail.id %}"><button type="button" id='deleteBtn'  class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+          </td>
+        </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="text" id="packagelist" style="padding-bottom: 5rem;">
+  <div class="container">
+                 <div class="text-center">
+                     <h2 class="section-heading text-uppercase light" style="font-size: xx-large; font-weight:bold;">PACKAGES LISTS</h2>
+                     <a href="{% url 'addPackage' %}"><button type="button"  class="btn btn-secondary"><i class="fas fa-plus">Add Package</i></button></a>
+                 </div>
+                 <br>
+ <div class="container">
+  <table class="table table-bordered" style="font-size: 1.5rem;">
+       <thead class="table-dark">
+         <tr>
+           <th scope="col">Id</th>
+           <th scope="col">Package No.</th>
+           <th scope="col">Hair</th>
+           <th scope="col">Nail</th>
+           <th scope="col">Price</th>
+           <th scope="col">Action</th>
+         </tr>
+       </thead>
+         <tr>
+           {% for package in package %}
+           <td>{{ package.id }}</td>
+           <td>{{ package.package_name }}</td>
+           <td>{{ package.hairservice }}</td>
+           <td>{{ package.nailservice }}</td>
+           <td>₱{{ package.price }}</td>
+           <td>
+             <a href="{% url 'viewPackageInfo' package.id %}"><button type="button"  class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+             <a href="{% url 'updatePackage' package.id %}"><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></a>
+             <a href="{% url 'deletePackage' package.id %}"><button type="button" id="deletePackage"  class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+           </td>
+         </tr>
+           {% endfor %}
+       </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="text" id="customerlist" style="padding-bottom: 5rem;">
+  <div class="container">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase light" style="font-size: xx-large; font-weight:bold;">CUSTOMER LISTS</h2>
+        <a href="{% url 'createCustomer' %}"><button type="button"  class="btn btn-secondary"><i class="fas fa-plus">Book Customer</i></button></a>
+    </div>
+    <br>
+<div class="container">
+  <table class="table table-bordered" style="font-size: 1.5rem;">
+       <thead class="table-dark">
+         <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Time</th>
+            <th scope="col">Date</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for customer in customer %}
+            <th scope="row">{{ customer.id }}</th>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.time }}</td>
+            <td>{{ customer.date }}</td>
+            <td>{{ customer.date_created }}</td>
+              <td>
+              <a href="{% url 'viewCustomer' customer.id %}"><button type="button"  class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+              <a href="{% url 'updateCustomer' customer.id %}"><button type="button" id="" class="btn btn-success"><i class="fas fa-edit"></i></button></a>
+              <a href="{% url 'deleteBook' customer.id %}"><button type="button" id="deleteCustomer"  class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

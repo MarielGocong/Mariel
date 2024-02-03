@@ -1,0 +1,21 @@
+<!{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+<section class="appoint" id="appoint">
+  <div class="container border border-secondary mb-5 bg-body-secondary rounded px-5" style="width: 60rem;">
+    <h1 class="heading text-center fw-bolder"><span>Add Hair Service</span></h1>
+  <div class="container" style="font-size:1.5rem; width:50rem">
+
+      <form action="" method="POST">
+          {% csrf_token %}
+          {{form}}
+          <br>
+      <input class="btn btn-secondary" type="submit" id="submit" name="Update">
+      </form>
+  </div>
+  <br>
+  </div>
+</section>
+
+{% endblock %}

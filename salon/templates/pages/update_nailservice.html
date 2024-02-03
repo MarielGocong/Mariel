@@ -1,0 +1,15 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+<section class="appoint" id="appoint">
+  <h1 class="heading"><span>Update Nail Service</span></h1>
+  <div class="container" style="font-size:1.5rem; width:50rem">
+
+      <form action="" method="POST">
+          {% csrf_token %}
+          {{form}}
+      <input class="btn btn-secondary" type="submit" id="submit" name="Update">
+      </form>
+  </div>
+</section>
+{% endblock %}

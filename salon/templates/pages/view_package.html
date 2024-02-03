@@ -1,0 +1,19 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+<section id="about">
+    <div class="container border border-secondary mb-5 bg-body-secondary rounded px-5" style="width: 60rem;">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8" style="font-size: large;">
+                <h1 style="font-weight: bold;">Package Information</h1>
+                    <p>Name: {{package.package_name}}</p>
+                    <p style="font-weight: bold;">Service Included</p>
+                    <p>{{package.hairservice}}</p>
+                    <p>{{package.nailservice}}</p>
+                    <p>Price: ₱{{package.price}}</p>
+                    <a href="{% url 'homePage' %}"><button class="btn btn-secondary">Back</button></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
